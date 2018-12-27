@@ -13,6 +13,7 @@ import {
 
 import Home from './src/screens/containers/home';
 import Header from './src/screens/components/header';
+import SuggestionsList from './src/videos/containers/suggestions-list';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -22,7 +23,7 @@ export default class App extends Component<Props> {
         <Header />
         <Text>Buscador</Text>
         <Text>Categorias</Text>
-        <Text>Sugerencias</Text>
+        <SuggestionsList />
       </Home>
     );
   }
