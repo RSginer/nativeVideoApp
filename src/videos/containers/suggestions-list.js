@@ -4,6 +4,8 @@ import {
   Text
 } from 'react-native';
 
+import Layout from '../components/suggestions-list-layout';
+
 class SuggestionsList extends Component {
   render() {
     const list = [
@@ -17,10 +19,12 @@ class SuggestionsList extends Component {
       }
     ]
     return (
-      <FlatList
-        data={list}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
-      />
+      <Layout title="Recomendado para ti">
+        <FlatList
+          data={list}
+          renderItem={({ item }) => <Text>{item.title}</Text>}
+        />
+      </Layout>
     )
   }
 }
