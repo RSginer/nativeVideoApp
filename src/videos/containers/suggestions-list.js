@@ -6,7 +6,7 @@ import {
 
 import Layout from '../components/suggestions-list-layout';
 import Empty from '../components/empty';
-import Separator from '../components/vertical-separator';
+import Separator from '../../sections/components/vertical-separator';
 import Suggestion from '../components/suggestion';
 class SuggestionsList extends Component {
 
