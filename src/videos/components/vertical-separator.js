@@ -14,7 +14,6 @@ function VerticalSeparator(props) {
       }
 
     ]}>
-      <Text>Separador</Text>
     </View>
   )
 }
