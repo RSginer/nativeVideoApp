@@ -18,6 +18,7 @@ import SuggestionsList from './src/videos/containers/suggestions-list';
 import API from './src/utils/api';
 import CategoryList from './src/videos/containers/category-list';
 import Player from './src/player/containers/player';
+
 type Props = {};
 export default class App extends Component<Props> {
 
