@@ -16,6 +16,7 @@ function Layout(props) {
           props.loading && props.loader
         }
       </View>
+      {props.controls}
     </View>
   )
 }
