@@ -10,6 +10,9 @@ import Video from 'react-native-video';
 import Layout from '../components/player-layout';
 import PlayPause from '../components/play-pause';
 import ControlLayout from '../components/control-layout';
+import ProgressBar from '../components/progress-bar';
+import FullScreen from '../components/fullscreen';
+
 class Player extends Component {
 
   state = {
@@ -31,12 +34,19 @@ class Player extends Component {
     })
   }
 
+  onFullScreen = () => {
+    this.player.presentFullscreenPlayer();
+  }
+
   render() {
     return (
       <Layout
         loading={this.state.loading}
         video={
           <Video
+            ref={(ref) => {
+              this.player = ref
+            }}
             paused={this.state.paused}
             source={{ uri: 'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4' }}
             style={styles.video}
@@ -51,10 +61,11 @@ class Player extends Component {
         controls={
           <ControlLayout>
             <PlayPause paused={this.state.paused} onPress={this.playPause} />
-            <Text>Progress bar</Text>
-            <Text>Time left</Text>
-            <Text>Full screen</Text>
-          </ControlLayout>
+            <ProgressBar />
+            <FullScreen onFullScreen={this.onFullScreen} />
+            <Text>0 /</Text>
+            <Text>0</Text>
+          </ ControlLayout>
         }
       />
     )
