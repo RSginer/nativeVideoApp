@@ -14,7 +14,9 @@ import {
 import Home from './src/screens/containers/home';
 import Header from './src/screens/components/header';
 import SuggestionsList from './src/videos/containers/suggestions-list';
-import API from './src/utils/api'
+import API from './src/utils/api';
+import CategoryList from './src/videos/containers/category-list';
+
 type Props = {};
 export default class App extends Component<Props> {
 
@@ -24,8 +26,11 @@ export default class App extends Component<Props> {
 
   async componentDidMount() {
     const movies = await API.getSuggestion(10);
+    const categories = await API.getMovies();
+
     this.setState({
-      suggestionsList: movies
+      suggestionsList: movies,
+      categoryList: categories
     })
   }
 
@@ -35,6 +40,7 @@ export default class App extends Component<Props> {
         <Header />
         <Text>Buscador</Text>
         <Text>Categorias</Text>
+        <CategoryList list={this.state.categoryList} />
         <SuggestionsList list={this.state.suggestionsList} />
       </Home>
     );
