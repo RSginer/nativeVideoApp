@@ -6,6 +6,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   TouchableWithoutFeedback,
+  Platform
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -24,7 +25,10 @@ function PlayPause(props) {
       }}
     >
       {
-        props.paused ? <Icon size={20} color="#98ca3f" name="ios-play" /> : <Icon size={20} color="#98ca3f" name="ios-pause" />
+        props.paused ? <Icon size={20} color="#98ca3f" name={
+          Platform.OS === 'ios' ? 'ios-play' : 'md-play'
+        } /> : <Icon size={20} color="#98ca3f" name={
+          Platform.OS === 'ios' ? 'ios-pause' : 'md-pause'} />
       }
     </TouchableHighlight>
   )
