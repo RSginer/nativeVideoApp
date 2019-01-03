@@ -11,7 +11,6 @@ function ProgressBar(props) {
         onSlidingComplete={props.onChangeFinished}
         style={styles.slider}
         value={props.progress}
-        trackImage={require('../../../assets/logo.png')}
         step={0.01}
         thumbStyle={styles.thumbStyle}
         maximumTrackTintColor="rgba(255, 255, 255, .40)"
