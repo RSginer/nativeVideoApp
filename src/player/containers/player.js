@@ -48,6 +48,14 @@ class Player extends Component {
     })
   }
 
+  onChangeFinished = payload => {
+    this.player.seek(payload)
+    this.setState({ paused: false })
+  }
+
+  onChangeStarted = payload => {
+    this.setState({ paused: true })
+  }
   render() {
     let currentTime = moment(this.state.currentTime * 1000).format('mm:ss')
     let totalTime = moment(this.state.videoDuration * 1000).format('mm:ss')
@@ -75,7 +83,7 @@ class Player extends Component {
         controls={
           <ControlLayout>
             <PlayPause paused={this.state.paused} onPress={this.playPause} />
-            <ProgressBar progress={this.state.currentTime} videoDuration={this.state.videoDuration} />
+            <ProgressBar onChangeFinished={this.onChangeFinished} progress={this.state.currentTime} videoDuration={this.state.videoDuration} />
             <Text style={styles.progressTime}>{currentTime} / {totalTime}</Text>
             <FullScreen onFullScreen={this.onFullScreen} />
           </ ControlLayout>
