@@ -8,11 +8,13 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons'
+
 function PlayPause(props) {
   return (
     <TouchableHighlight
       onPress={props.onPress}
-      underlayColor="red"
+      underlayColor="rgba(255,255,255,.3)"
       style={styles.container}
       hitSlop={{
         left: 5,
@@ -22,28 +24,21 @@ function PlayPause(props) {
       }}
     >
       {
-        props.paused ? <Text style={styles.buttom}>PLAY</Text> : <Text style={styles.buttom}>PAUSE</Text>
+        props.paused ? <Icon size={20} color="#98ca3f" name="ios-play" /> : <Icon size={20} color="#98ca3f" name="ios-pause" />
       }
     </TouchableHighlight>
   )
 }
 
 const styles = StyleSheet.create({
-  button: {
-    color: 'white',
-    fontSize: 10,
-    fontWeight: 'bold'
-  },
   container: {
     justifyContent: 'center',
     paddingHorizontal: 10,
     height: 25,
     marginRight: 10,
     marginVertical: 5,
-    borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 4,
     borderColor: 'white',
-    backgroundColor: 'gray'
   }
 })
 

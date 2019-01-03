@@ -5,13 +5,13 @@ function ProgressBar(props) {
   return (
     <View style={styles.progress}>
       <Slider
-        maximumValue={props.duration}
+        maximumValue={props.videoDuration}
         minimumValue={0}
         onValueChange={props.onChangeStarted}
         onSlidingComplete={props.onChangeFinished}
         style={styles.slider}
         value={props.progress}
-        // step={duration / 10000}
+        step={0.01}
         maximumTrackTintColor="rgba(255, 255, 255, .40)"
         minimumTrackTintColor='#98ca3f'
         thumbTintColor='white'
@@ -23,6 +23,8 @@ function ProgressBar(props) {
 const styles = StyleSheet.create({
   progress: {
     width: '65%',
+  },
+  slider: {
   }
 })
 

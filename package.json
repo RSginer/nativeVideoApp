@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
+    "moment": "^2.23.0",
     "react": "16.6.3",
     "react-native": "0.57.8",
+    "react-native-vector-icons": "^6.1.0",
     "react-native-video": "^4.2.0"
   },
   "devDependencies": {
