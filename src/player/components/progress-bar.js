@@ -7,11 +7,12 @@ function ProgressBar(props) {
       <Slider
         maximumValue={props.videoDuration}
         minimumValue={0}
-        onValueChange={props.onChangeStarted}
+        onSlidingStart={props.onChangeStarted}
         onSlidingComplete={props.onChangeFinished}
         style={styles.slider}
         value={props.progress}
         step={0.01}
+        trackStyle={styles.trackStyle}
         thumbStyle={styles.thumbStyle}
         maximumTrackTintColor="rgba(255, 255, 255, .40)"
         minimumTrackTintColor='#98ca3f'
@@ -26,14 +27,13 @@ const styles = StyleSheet.create({
     width: '65%',
   },
   thumbStyle: {
-    width: 10,
-    height: 10,
-    borderRadius: 30 / 2,
+    width: 4,
+    height: 30,
+    borderRadius: 0,
     backgroundColor: 'white',
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 2,
-    shadowOpacity: 0.35,
+  },
+  trackStyle: {
+    height: 30
   }
 })
 

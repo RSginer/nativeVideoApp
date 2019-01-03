@@ -18,10 +18,10 @@ function PlayPause(props) {
       underlayColor="rgba(255,255,255,.3)"
       style={styles.container}
       hitSlop={{
-        left: 5,
-        top: 5,
-        bottom: 5,
-        right: 5
+        left: 10,
+        top: 10,
+        bottom: 10,
+        right: 10
       }}
     >
       {
@@ -37,9 +37,9 @@ function PlayPause(props) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 7,
     height: 25,
-    marginRight: 10,
+    marginRight: 8,
     marginVertical: 5,
     borderRadius: 4,
     borderColor: 'white',
