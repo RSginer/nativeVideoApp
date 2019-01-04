@@ -61,8 +61,8 @@ export default class App extends Component<Props> {
           loading={
             <SafeAreaView>
               <View style={styles.loadingContainer}>
-                <ActivityIndicator color="#70B124" />
                 <Image style={styles.imageLoader} source={require('./assets/logo.png')} />
+                <ActivityIndicator color="#70B124" />
               </View>
             </SafeAreaView>
           }
@@ -81,11 +81,12 @@ export default class App extends Component<Props> {
 
 const styles = StyleSheet.create({
   loadingContainer: {
-    height: '88.3%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   imageLoader: {
-    marginTop: 30
+    marginBottom: 30,
+
   }
 })
