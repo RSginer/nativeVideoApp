@@ -62,11 +62,12 @@ function Details(props) {
 const styles = StyleSheet.create({
   container: {},
   trailer: {
-    height: 200
+    height: 200,
+    marginBottom: 20
   },
   details: {
     flexDirection: "row",
-    marginBottom: 20
+    marginBottom: 40
   },
   cover: {
     width: 125,
