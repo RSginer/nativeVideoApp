@@ -7,10 +7,11 @@ import Header from '../components/header';
 import Close from '../../sections/components/close';
 
 import { connect } from 'react-redux';
+import Details from '../../videos/components/details';
 
 function mapStateToProps(state) {
   return {
-    selectedMovie: state.selectedMovie
+    movie: state.selectedMovie
   }
 }
 
@@ -32,6 +33,7 @@ class Movie extends Component {
           <Close onPress={this.closeVideo} />
         </Header>
         <Player />
+        <Details {...this.props.movie} />
       </MovieLayout>
     )
   }
