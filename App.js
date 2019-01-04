@@ -16,43 +16,16 @@ import {
   Image
 } from 'react-native';
 
-import Home from './src/screens/containers/home';
-import Header from './src/screens/components/header';
-import SuggestionsList from './src/videos/containers/suggestions-list';
-import API from './src/utils/api';
-import CategoryList from './src/videos/containers/category-list';
-import Player from './src/player/containers/player';
-
 import { Provider } from 'react-redux';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './Store';
 
+import AppLayout from './src/AppLayout';
+
 type Props = {};
 export default class App extends Component<Props> {
-
-  state = {}
-
-  async componentDidMount() {
-    const suggestionList = await API.getSuggestion(10);
-
-    store.dispatch({
-      type: 'SET_SUGGESTION_LIST',
-      payload: {
-        suggestionList
-      }
-    });
-
-    const categoryList = await API.getMovies();
-
-    store.dispatch({
-      type: 'SET_CATEGORY_LIST',
-      payload: {
-        categoryList
-      }
-    });
-  }
 
   render() {
     return (
@@ -67,12 +40,7 @@ export default class App extends Component<Props> {
             </SafeAreaView>
           }
           persistor={persistor}>
-          <Home>
-            <Header />
-            <Player />
-            <CategoryList />
-            <SuggestionsList />
-          </Home>
+          <AppLayout />
         </PersistGate>
       </Provider>
     );

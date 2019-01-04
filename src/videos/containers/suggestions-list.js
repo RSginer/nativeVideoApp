@@ -22,7 +22,16 @@ class SuggestionsList extends Component {
 
   itemSeparator = () => <Separator />
 
-  renderItem = ({ item }) => <Suggestion {...item} />
+  renderItem = ({ item }) => <Suggestion onPress={() => this.onSugestionPress(item)} {...item} />
+
+  onSugestionPress = (item) => {
+    this.props.dispatch({
+      type: 'SET_SELECTED_MOVIE',
+      payload: {
+        movie: item
+      }
+    })
+  }
 
   keyExtractor = (item) => item.id.toString();
 
