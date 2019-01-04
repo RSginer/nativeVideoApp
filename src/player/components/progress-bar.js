@@ -24,7 +24,7 @@ function ProgressBar(props) {
 
 const styles = StyleSheet.create({
   progress: {
-    width: '65%',
+    width: '56%',
   },
   thumbStyle: {
     width: 4,
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   trackStyle: {
-    height: 30
+    height: 30,
+    borderRadius: 0
   }
 })
 
