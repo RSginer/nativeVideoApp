@@ -14,7 +14,9 @@ import Layout from '../components/category-list-layout';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
-  debugger
+  return {
+    list: state.categoryList
+  }
 }
 class CategoryList extends Component {
   renderEmpty = () => <Empty text="No hay sugerencias" />

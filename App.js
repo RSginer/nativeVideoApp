@@ -9,7 +9,11 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View
+  View,
+  SafeAreaView,
+  ActivityIndicator,
+  StyleSheet,
+  Image
 } from 'react-native';
 
 import Home from './src/screens/containers/home';
@@ -20,36 +24,68 @@ import CategoryList from './src/videos/containers/category-list';
 import Player from './src/player/containers/player';
 
 import { Provider } from 'react-redux';
-import store from './Store';
+
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { store, persistor } from './Store';
 
 type Props = {};
 export default class App extends Component<Props> {
 
-  state = {
-    suggestionsList: []
-  }
+  state = {}
 
   async componentDidMount() {
-    const movies = await API.getSuggestion(10);
-    const categories = await API.getMovies();
+    const suggestionList = await API.getSuggestion(10);
 
-    this.setState({
-      suggestionsList: movies,
-      categoryList: categories
-    })
+    store.dispatch({
+      type: 'SET_SUGGESTION_LIST',
+      payload: {
+        suggestionList
+      }
+    });
+
+    const categoryList = await API.getMovies();
+
+    store.dispatch({
+      type: 'SET_CATEGORY_LIST',
+      payload: {
+        categoryList
+      }
+    });
   }
 
   render() {
     return (
       <Provider store={store}>
-        <Home>
-          <Header />
-          <Player />
-          <CategoryList list={this.state.categoryList} />
-          <SuggestionsList list={this.state.suggestionsList} />
-        </Home>
+        <PersistGate
+          loading={
+            <SafeAreaView>
+              <View style={styles.loadingContainer}>
+                <ActivityIndicator color="#70B124" />
+                <Image style={styles.imageLoader} source={require('./assets/logo.png')} />
+              </View>
+            </SafeAreaView>
+          }
+          persistor={persistor}>
+          <Home>
+            <Header />
+            <Player />
+            <CategoryList />
+            <SuggestionsList />
+          </Home>
+        </PersistGate>
       </Provider>
-
     );
   }
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    height: '88.3%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageLoader: {
+    marginTop: 30
+  }
+})

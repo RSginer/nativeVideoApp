@@ -1,9 +1,19 @@
 import { createStore } from 'redux';
 
+import { persistStore, persistReducer } from 'redux-persist';
+
 import reducer from './reducers/videos';
 
-const store = createStore(reducer, {
-  videos: 'Ruben'
-})
+import storage from 'redux-persist/lib/storage';
 
-export default store;
+const persistConfig = {
+  key: 'root',
+  storage
+}
+
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+const store = createStore(persistedReducer);
+const persistor = persistStore(store)
+
+export { store, persistor };

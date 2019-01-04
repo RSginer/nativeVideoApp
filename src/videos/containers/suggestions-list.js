@@ -4,6 +4,14 @@ import {
   Text
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+  return {
+    list: state.suggestionList
+  }
+}
+
 import Layout from '../components/suggestions-list-layout';
 import Empty from '../components/empty';
 import Separator from '../../sections/components/vertical-separator';
@@ -33,4 +41,4 @@ class SuggestionsList extends Component {
   }
 }
 
-export default SuggestionsList;
+export default connect(mapStateToProps)(SuggestionsList);
