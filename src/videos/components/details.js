@@ -42,7 +42,9 @@ const makeHTML = (id) => {
 
 function Details(props) {
   return (
-    <View>
+    <View style={{
+      flex: 1
+    }}>
       <View style={styles.top}>
         <Text style={styles.title}>{props.title}</Text>
       </View>
@@ -60,40 +62,41 @@ function Details(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+  },
   trailer: {
     height: 200,
-    marginBottom: 20
+    marginBottom: 40,
   },
   details: {
-    flexDirection: "row",
-    marginBottom: 40
+    flexDirection: 'row',
+    marginBottom: 20,
   },
   cover: {
     width: 125,
-    height: 190
+    height: 190,
   },
   title: {
-    color: "#44546b",
+    color: '#44546b',
     fontSize: 18,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   top: {
     borderBottomWidth: 1,
-    borderBottomColor: "#eaeaea",
+    borderBottomColor: '#eaeaea',
     padding: 20,
-    backgroundColor: "white"
+    backgroundColor: 'white',
   },
   bottom: {
     padding: 20,
+    flex: 1,
   },
   description: {
     fontSize: 15,
-    textAlign: 'justify',
     lineHeight: 22.5,
-    color: "#4c4c4c",
+    color: '#4c4c4c',
     marginLeft: 10,
-    flex: 1
+    flex: 1,
   }
 })
 
