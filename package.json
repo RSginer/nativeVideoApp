@@ -9,20 +9,20 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
-    "react": "16.6.3",
-    "react-native": "0.57.8",
+    "react": "16.8.4",
+    "react-native": "0.59.9",
     "react-native-slider": "^0.11.0",
     "react-native-vector-icons": "^6.1.0",
-    "react-native-video": "^4.2.0",
-    "react-redux": "^6.0.0",
+    "react-native-video": "^4.4.0",
+    "react-redux": "^7.0.1",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.3"
+    "metro-react-native-babel-preset": "0.53.1",
+    "react-test-renderer": "16.8.4"
   },
   "jest": {
     "preset": "react-native"
